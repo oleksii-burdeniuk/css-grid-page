@@ -1,0 +1,21 @@
+
+node_modules/
+package-lock.json
+
+# macOS specific
+.DS_Store
+
+# IDE configuration files
+.idea/
+.vscode/
+
+# Build/output directories (adjust if applicable)
+build/
+dist/
+
+# Compiled files (adjust if applicable)
+*.css.map  # Ignore CSS source maps
+
+# Testing files (adjust if applicable)
+__tests__/
+**/tests/

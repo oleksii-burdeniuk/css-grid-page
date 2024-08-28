@@ -1,0 +1,82 @@
+// COLOR VARIABLES
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } // 600px
+  }
+  @if ($breakpoint == tablet) {
+    @media only screen and (max-width: 58.25em) {
+      @content;
+    } //900px
+  }
+  @if ($breakpoint == desktop) {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if ($breakpoint == big-desktop) {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800px
+  }
+}
+
+$color-primary: #c69963;
+$color-primary-dark: #b28451;
+
+$color-secondary: #101d2c;
+
+$color-red-1: #a30000;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //1rem  =10px
+  transition: font-size 0.3s;
+  @include respond(tablet) {
+    font-size: 50%;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-rows: min-content min-content max-content repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [coll-start] minmax(min-content, 14rem) [coll-end])
+    [center-finish]
+    minmax(6rem, 1fr)
+    [full-end];
+
+  @include respond(tablet) {
+    grid-template-rows: 6rem min-content min-content min-content repeat(
+        3,
+        min-content
+      );
+    grid-template-columns:
+      [ full-start] minmax(6rem, 1fr)
+      [center-start] repeat(
+        8,
+        [coll-start] minmax(min-content, 14rem) [coll-end]
+      )
+      [center-finish]
+      minmax(6rem, 1fr)
+      [full-end];
+  }
+}

@@ -1,0 +1,63 @@
+.sidebar {
+  background-color: $color-primary;
+  grid-column: sidebar-start/sidebar-end;
+  grid-row: 1/-1;
+  display: flex;
+  justify-content: center;
+  @include respond(tablet) {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    justify-content: end;
+    align-items: center;
+    align-items: center;
+  }
+}
+.nav-btn {
+  display: block;
+  border: none;
+  border-radius: 0;
+  margin-top: 4rem;
+  cursor: pointer;
+  align-self: flex-start;
+  background-color: transparent;
+  min-width: fit-content;
+  height: 3rem;
+  padding: 1rem;
+  transition: all 0.2s;
+
+  @include respond(tablet) {
+    align-self: center;
+    height: 100%;
+    margin-top: 1px;
+  }
+
+  &__content {
+    height: 2px;
+    width: 3.5rem;
+    background-color: #fff;
+    display: block;
+    transition: all 0.2s;
+    &::before,
+    &::after {
+      background-color: #fff;
+      height: 2px;
+      width: 3.5rem;
+      content: '';
+      display: block;
+    }
+    &::before {
+      transform: translateY(-1rem);
+    }
+    &::after {
+      transform: translateY(0.9rem);
+    }
+    &:hover,
+    &::before:hover,
+    &::after:hover {
+      transform: translateY(-1rem);
+    }
+  }
+  &:hover &__content {
+    transform: translateY(-3px);
+  }
+}
